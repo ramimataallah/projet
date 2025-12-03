@@ -50,7 +50,12 @@
               "outputHashing": "all"
             },
             "development": {
-              "optimization": false,
+              "optimization": {
+                "styles": {
+                  "minify": true,
+                  "inlineCritical": false
+                }
+              }
               "extractLicenses": false,
               "sourceMap": true
             }
