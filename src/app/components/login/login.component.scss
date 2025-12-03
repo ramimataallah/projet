@@ -1,0 +1,177 @@
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 70vh;
+  padding: var(--spacing-xl);
+  animation: slideUp 0.6s ease-out;
+
+  .card {
+    max-width: 420px;
+    width: 100%;
+    background: var(--surface-dark);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-2xl);
+    box-shadow: var(--shadow-lg);
+    padding: var(--spacing-2xl);
+    transition: all var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+
+    &:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
+    }
+
+    h2 {
+      margin: 0 0 var(--spacing-sm) 0;
+      font-size: var(--font-size-3xl);
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+      letter-spacing: -0.01em;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: var(--text-secondary);
+      font-size: var(--font-size-sm);
+      margin: 0 0 var(--spacing-xl) 0;
+      font-weight: 400;
+    }
+
+    .form {
+      gap: var(--spacing-lg);
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-sm);
+      }
+
+      label {
+        font-weight: 600;
+        color: var(--text-primary);
+        text-transform: uppercase;
+        font-size: var(--font-size-xs);
+        letter-spacing: 0.05em;
+      }
+
+      input {
+        border-radius: var(--radius-lg);
+        border: 1px solid var(--border);
+        padding: var(--spacing-md) var(--spacing-lg);
+        font-size: var(--font-size-base);
+        background: var(--surface-darker);
+        transition: all var(--transition-fast);
+        font-weight: 500;
+      }
+
+      input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.2);
+        background: var(--surface-darker);
+      }
+
+      input::placeholder {
+        color: var(--text-muted);
+      }
+
+      .error-message {
+        display: flex;
+        align-items: center;
+        gap: var(--spacing-sm);
+        color: var(--danger);
+        font-size: var(--font-size-sm);
+        background: rgba(255, 107, 107, 0.1);
+        border: 1px solid var(--danger);
+        padding: var(--spacing-md) var(--spacing-lg);
+        border-radius: var(--radius-lg);
+        font-weight: 500;
+      }
+
+      .error-message .material-symbols-outlined {
+        font-size: 20px;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+        padding: var(--spacing-lg) var(--spacing-xl);
+        border-radius: var(--radius-lg);
+        font-weight: 600;
+        transition: all var(--transition-fast);
+        text-transform: uppercase;
+        font-size: var(--font-size-sm);
+        letter-spacing: 0.05em;
+        position: relative;
+
+        &:hover {
+          transform: translateY(-2px);
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+          transform: none;
+        }
+
+        .spinner-inline {
+          display: none;
+        }
+      }
+    }
+
+    .form-footer {
+      text-align: center;
+      margin-top: var(--spacing-lg);
+      font-size: var(--font-size-sm);
+      color: var(--text-secondary);
+
+      .link {
+        color: var(--primary);
+        font-weight: 600;
+        transition: color var(--transition-fast);
+
+        &:hover {
+          color: var(--secondary);
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 640px) {
+  .login {
+    min-height: 60vh;
+    padding: var(--spacing-lg);
+
+    .card {
+      padding: var(--spacing-xl);
+
+      h2 {
+        font-size: var(--font-size-2xl);
+      }
+
+      .subtitle {
+        font-size: var(--font-size-xs);
+      }
+    }
+  }
+}

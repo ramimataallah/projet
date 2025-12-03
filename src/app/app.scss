@@ -1,0 +1,26 @@
+/* Header layout improvements */
+.app-header{
+	background: linear-gradient(180deg,#29333b 0%,#24303a 100%);
+	border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.app-header .site-container{max-width:1200px;margin:0 auto;padding:12px 20px}
+.header-row{display:flex;align-items:center;justify-content:space-between}
+.header-left .brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--txt);font-weight:700}
+.brand .material-symbols-outlined{font-size:22px}
+.brand-text{font-size:20px;color:var(--accent)}
+.main-nav{display:flex;align-items:center;gap:18px}
+.main-nav{display:flex;align-items:center;gap:18px;flex-wrap:nowrap;white-space:nowrap}
+.nav-link{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border-radius:8px;color:var(--muted);text-decoration:none;height:40px}
+.nav-link.active,.nav-link:hover{background:linear-gradient(90deg,rgba(255,0,0,0.03),rgba(0,200,180,0.03));color:var(--txt)}
+.nav-divider{width:1px;height:28px;background:rgba(255,255,255,0.03);margin:0 10px}
+.auth-actions{display:flex;align-items:center;gap:10px;flex-direction:row}
+.auth-actions > *{display:inline-flex;align-items:center}
+.logout{background:transparent;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;padding:8px}
+.logout .material-symbols-outlined{font-size:18px}
+
+/* Ensure header looks good on small screens */
+@media (max-width:800px){
+	.app-header .site-container{padding:10px}
+	.main-nav{gap:10px}
+	.brand-text{font-size:18px}
+}

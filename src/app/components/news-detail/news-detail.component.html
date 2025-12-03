@@ -1,0 +1,18 @@
+<section class="news-detail">
+  <div *ngIf="!notFound; else missing">
+    <h2>{{ article?.title }}</h2>
+    <div *ngIf="article?.image" class="detail-thumb" [style.backgroundImage]="'url(' + article?.image + ')'" style="height:300px;background-size:cover;background-position:center;border-radius:8px;margin-bottom:12px"></div>
+    <p class="muted">{{ article?.source?.name }} • {{ article?.publishedAt | date:'medium' }}</p>
+    <p style="margin-top:12px">{{ article?.description }}</p>
+    <div style="margin-top:18px">
+      <a [href]="article?.url" target="_blank" rel="noopener" class="btn">Open Original</a>
+      <a routerLink="/news" class="btn secondary" style="margin-left:8px">Back</a>
+    </div>
+  </div>
+
+  <ng-template #missing>
+    <h3>Article not available</h3>
+    <p class="muted">This article is not available. Please open articles from the News list after you sign in.</p>
+    <a routerLink="/news" class="btn">Back to News</a>
+  </ng-template>
+</section>
